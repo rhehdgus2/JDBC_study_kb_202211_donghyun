@@ -30,6 +30,8 @@ import java.sql.*;
 import java.util.Properties;
 import java.util.Vector;
 
+import com.mysql.cj.jdbc.Driver;
+
 
 /**
  * Manages a java.sql.Connection pool.
@@ -38,9 +40,9 @@ import java.util.Vector;
  */
 public class DBConnectionMgr {
 
-    private Vector connections = new Vector(10);
-    private String _driver = "org.gjt.mm.mysql.Driver",
-    _url = "jdbc:mysql://127.0.0.1:80/java?useUnicode=true&characterEncoding=EUC_KR",
+    private Vector connections = new Vector(10);	// 벡터는 arraylist랑 똑같은데 스레드를 넣을 수 있다.
+    private String _driver = Driver.class.getName(),
+    _url = "jdbc:mysql://localhost:3306/subquery_study",
     _user = "root",
     _password = "toor";
     
